@@ -9,16 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/next": "^9.0.0",
     "@zxing/library": "^0.20.0",
+    "clipboard-copy": "^4.0.1",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
-    "react-qr-scanner": "^1.0.0-alpha.11"
+    "react-webcam": "^7.2.0",
+    "react-zxing": "^2.0.0",
+    "zxing-typescript": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",

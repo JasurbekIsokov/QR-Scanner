@@ -1,21 +1,23 @@
 "use client";
+import { useState } from "react";
+import { useZxing } from "react-zxing";
 
-import React, { useState } from "react";
-import BarcodeScanner from "./components/Scanner";
+export default function Home() {
+  const [result, setResult] = useState("");
 
-const Home: React.FC = () => {
-  const [barcodeData, setBarcodeData] = useState<string | null>(null);
-
-  const handleBarcodeScan = (data: string) => {
-    setBarcodeData(data);
-  };
+  const { ref } = useZxing({
+    onDecodeResult(result) {
+      setResult(result.getText());
+    },
+  });
 
   return (
-    <div>
-      <h1>Scanned Barcode: {barcodeData}</h1>
-      <BarcodeScanner onScan={handleBarcodeScan} />
+    <div className="container">
+      <video ref={ref} className="video" />
+      <div className="resultBox">
+        <p className="resultName">Result:</p>
+        <p className="resultText">{result}</p>
+      </div>
     </div>
   );
-};
-
-export default Home;
+}
